@@ -1,0 +1,70 @@
+{% extends 'hello/base.html'%}
+
+{% block title %}
+Просмотр складов
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+    <div class="py-5 text-center">
+    <img class="d-block mx-auto mb-4" src="https://water-profi.ru/wp-content/uploads/2020/09/pecialict.png" alt="" width="90" height="90">
+      <h2>Учёт инвентаря</h2>
+      <p class="lead">Информация об инвентаре на текущий момент</p>
+    </div>
+        <div class="row g-0">
+         <div class="col md-4">
+        <ul class="list-group mb-3">
+          <li class="list-group-item d-flex justify-content-between bg-light">
+            <div class="text-success">
+              <h6 class="my-0">Название</h6>
+            </div>
+          </li>
+          {% for i in name %}
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">{{ i }}</h6>
+            </div>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+       <div class="col md-4">
+        <ul class="list-group mb-3">
+          <li class="list-group-item d-flex justify-content-between bg-light">
+            <div class="text-success">
+              <h6 class="my-0">Тип</h6>
+            </div>
+          </li>
+          {% for i in name %}
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">{{ type }}</h6>
+            </div>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+       <div class="col md-4">
+        <ul class="list-group mb-3">
+          <li class="list-group-item d-flex justify-content-between bg-light">
+            <div class="text-success">
+              <h6 class="my-0">Номер склада</h6>
+            </div>
+          </li>
+          {% for i in name %}
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">{{ number }}</h6>
+            </div>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+    </div>
+        <p class="lead text-center ">Количество на текущую дату: {{ amount }}</p>
+    </div>
+{% endblock %}
+

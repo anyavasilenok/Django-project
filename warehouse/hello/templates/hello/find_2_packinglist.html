@@ -1,0 +1,153 @@
+{% extends 'hello/base.html'%}
+
+{% block title %}
+Просмотр складов
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+    <div class="py-5 text-center">
+    <img class="d-block mx-auto mb-4" src="https://water-profi.ru/wp-content/uploads/2020/09/pecialict.png" alt="" width="90" height="90">
+      <h2>Учёт инвентаря</h2>
+      <p class="lead">Информация об приходной накладной на данный момент</p>
+    </div>
+
+        <div class="row g-0">
+         <div class="col">
+        <ul class="list-group mb-3">
+          <li class="list-group-item d-flex justify-content-between bg-light">
+            <div class="text-success">
+              <h6 class="my-0">Количество</h6>
+            </div>
+          </li>
+
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">{{ info.amount }}</h6>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+
+        <div class="col">
+        <ul class="list-group mb-3">
+          <li class="list-group-item d-flex justify-content-between bg-light">
+            <div class="text-success">
+              <h6 class="my-0">Дата</h6>
+            </div>
+          </li>
+
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">{{ info.date}}</h6>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+
+       <div class="col">
+        <ul class="list-group mb-3">
+          <li class="list-group-item d-flex justify-content-between bg-light">
+            <div class="text-success">
+              <h6 class="my-0">Название инвентаря</h6>
+            </div>
+          </li>
+
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">{{ info.inventory }}</h6>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+
+        <div class="col">
+        <ul class="list-group mb-3">
+          <li class="list-group-item d-flex justify-content-between bg-light">
+            <div class="text-success">
+              <h6 class="my-0">Имя сотрудника</h6>
+            </div>
+          </li>
+
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">{{ info.employee }}</h6>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+
+       <div class="col">
+        <ul class="list-group mb-3">
+          <li class="list-group-item d-flex justify-content-between bg-light">
+            <div class="text-success">
+              <h6 class="my-0">Номер склада</h6>
+            </div>
+          </li>
+
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">{{ info.storage }}</h6>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+
+      </div>
+      <form method="post">
+      {% csrf_token %}
+      <div class="row g-0">
+        <div class="col md-0">
+          <div class="col md-4">
+              <input type="number" class="form-control" id="amount" name="amount" placeholder="Количество инвентаря">
+            </div>
+      </div>
+
+         <div class="col md-4">
+         <div class="col-14">
+              <input type="date" class="form-control" id="date" name="date" placeholder="Дата">
+            </div>
+      </div>
+
+          <div class="col md-0">
+          <div class="col md-4">
+              <select name="name_inventory" class="form-control">
+                  {% for i in inventory_list %}
+                  <option>{{ i.name }}</option>
+                  {% endfor %}
+                </select>
+            </div>
+      </div>
+
+          <div class="col md-4">
+         <div class="col-14">
+              <select name="name_employee" class="form-control">
+                  {% for i in employee_list %}
+                  <option>{{ i.name }}</option>
+                  {% endfor %}
+                </select>
+            </div>
+      </div>
+
+          <div class="col md-4">
+         <div class="col-14">
+              <select name="number" class="form-control">
+                  {% for i in storage_number %}
+                  <option>{{ i }}</option>
+                  {% endfor %}
+                </select>
+            </div>
+      </div>
+
+      </div>
+       <button class="w-100 btn btn-primary btn-lg" type="submit">Изменить</button>
+      </form>
+        <div>{{ message }}</div>
+    </div>
+{% endblock %}
+

@@ -1,0 +1,102 @@
+{% extends 'hello/base.html'%}
+
+{% block title %}
+Просмотр складов
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+    <div class="py-5 text-center">
+    <img class="d-block mx-auto mb-4" src="https://water-profi.ru/wp-content/uploads/2020/09/pecialict.png" alt="" width="90" height="90">
+      <h2>Учёт инвентаря</h2>
+      <p class="lead">Информация об инвентаре на текущий момент</p>
+    </div>
+        <div class="row g-0">
+        <div class="col md-0">
+        <ul class="list-group mb-3">
+          <li class="list-group-item d-flex justify-content-between bg-light">
+            <div class="text-success">
+              <h6 class="my-0">Название</h6>
+            </div>
+          </li>
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">{{ name }}</h6>
+            </div>
+          </li>
+
+
+        </ul>
+      </div>
+         <div class="col md-4">
+        <ul class="list-group mb-3">
+          <li class="list-group-item d-flex justify-content-between bg-light">
+            <div class="text-success">
+              <h6 class="my-0">Дата прихода</h6>
+            </div>
+          </li>
+          {% for i in pack %}
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">{{ i.date }}</h6>
+            </div>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+       <div class="col md-4">
+        <ul class="list-group mb-3">
+          <li class="list-group-item d-flex justify-content-between bg-light">
+            <div class="text-success">
+              <h6 class="my-0">Количество</h6>
+            </div>
+          </li>
+          {% for i in pack %}
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">{{ i.amount }}</h6>
+            </div>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+       <div class="col md-4">
+        <ul class="list-group mb-3">
+          <li class="list-group-item d-flex justify-content-between bg-light">
+            <div class="text-success">
+              <h6 class="my-0">Дата расхода</h6>
+            </div>
+          </li>
+          {% for i in sales %}
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">{{ i.date }}</h6>
+            </div>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div class="col md-4">
+        <ul class="list-group mb-3">
+          <li class="list-group-item d-flex justify-content-between bg-light">
+            <div class="text-success">
+              <h6 class="my-0">Количество</h6>
+            </div>
+          </li>
+          {% for i in sales %}
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">{{ i.amount }}</h6>
+            </div>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+    </div>
+    </div>
+{% endblock %}
+

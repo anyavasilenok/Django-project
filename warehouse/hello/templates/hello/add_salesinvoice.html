@@ -1,0 +1,72 @@
+{% extends 'hello/base.html'%}
+
+{% block title %}
+Добавить склад
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+    <div class="py-5 text-center">
+      <img class="d-block mx-auto mb-4" src="https://water-profi.ru/wp-content/uploads/2020/09/pecialict.png" alt="" width="90" height="90">
+      <h3>Добавление информаци о расходе</h3>
+      <p class="lead">Заполните поля, чтобы добавить запись</p>
+    </div>
+    <div class="">
+        <form method="post">
+          {% csrf_token %}
+          <div class="row g-3">
+            <div class="col-14">
+              <label class="form-label">Количество инвентаря</label>
+              <div>
+               <input type="number" class="form-control" id="amount" name="amount" placeholder="Введите количество инвентаря">
+              </div>
+            </div>
+
+            <div class="col-12">
+              <label class="form-label">Дата расхода</label>
+              <input type="date" class="form-control" id="date" name="date" placeholder="Введите дату">
+            </div>
+
+            <div class="col-12">
+              <label class="form-label">Название инвентаря</label>
+              <select name="name_inventory" class="form-control">
+                  {% for i in inventory_list %}
+                  <option>{{ i.name }}</option>
+                  {% endfor %}
+                </select>
+
+            </div>
+
+            <div class="col-12">
+              <label class="form-label">Имя сотрудника</label>
+              <select name="name_employee" class="form-control">
+                  {% for i in employee_list %}
+                  <option>{{ i.name }}</option>
+                  {% endfor %}
+                </select>
+            </div>
+
+            <div class="col-12">
+              <label class="form-label">Номер склада</label>
+              <select name="number" class="form-control">
+                  {% for i in storage_number %}
+                  <option>{{ i }}</option>
+                  {% endfor %}
+                </select>
+            </div>
+
+          </div>
+
+          <hr class="my-4">
+
+          <button class="w-100 btn btn-primary btn-lg" type="submit">Добавить запись</button>
+          <div class="py-5 text-center">
+              {{ message }}
+          </div>
+        </form>
+
+      </div>
+    </div>
+{% endblock %}
+
+

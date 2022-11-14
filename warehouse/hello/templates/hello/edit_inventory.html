@@ -1,0 +1,22 @@
+{% extends 'hello/base.html'%}
+
+{% block title %}
+Редактирование склада
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+    <div class="py-5 text-center">
+      <img class="d-block mx-auto mb-4" src="https://water-profi.ru/wp-content/uploads/2020/09/pecialict.png" alt="" width="90" height="90">
+      <h3>Редактирование склада</h3>
+      <p class="lead">Выберите операцию для редактрирования информации</p>
+    </div>
+       <div class="container text-center">
+          <a href="{% url 'add_inventory' %}" class="w-50 center btn btn-primary btn-lg mb-4" aria-current="page">Добавить</a>
+          <a href="{% url 'delete_inventory' %}" class="w-50 center btn btn-primary btn-lg mb-4" aria-current="page">Удалить</a>
+          <a href="{% url 'find_inventory' %}" class="w-50 center btn btn-primary btn-lg mb-4" aria-current="page">Изменить</a>
+      </div>
+    </div>
+{% endblock %}
+
+

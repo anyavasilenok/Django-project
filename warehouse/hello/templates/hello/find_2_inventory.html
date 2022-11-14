@@ -1,0 +1,71 @@
+{% extends 'hello/base.html'%}
+
+{% block title %}
+Просмотр складов
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+    <div class="py-5 text-center">
+    <img class="d-block mx-auto mb-4" src="https://water-profi.ru/wp-content/uploads/2020/09/pecialict.png" alt="" width="90" height="90">
+      <h2>Учёт инвентаря</h2>
+      <p class="lead">Информация об инвентаре на текущий момент</p>
+    </div>
+
+
+
+        <div class="row g-0">
+        <div class="col md-0">
+        <ul class="list-group mb-3">
+          <li class="list-group-item d-flex justify-content-between bg-light">
+            <div class="text-success">
+              <h6 class="my-0">Название</h6>
+            </div>
+          </li>
+          {% for i in info %}
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">{{ i.name }}</h6>
+            </div>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+         <div class="col md-4">
+        <ul class="list-group mb-3">
+          <li class="list-group-item d-flex justify-content-between bg-light">
+            <div class="text-success">
+              <h6 class="my-0">Тип</h6>
+            </div>
+          </li>
+          {% for i in info %}
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">{{ i.type }}</h6>
+            </div>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      </div>
+      <form method="post">
+      {% csrf_token %}
+      <div class="row g-0">
+        <div class="col md-0">
+          <div class="col md-4">
+              {{ form.name }}
+            </div>
+
+      </div>
+         <div class="col md-4">
+         <div class="col-14">
+              {{ form.type }}
+            </div>
+      </div>
+      </div>
+       <button class="w-100 btn btn-primary btn-lg" type="submit">Изменить</button>
+      </form>
+    </div>
+{% endblock %}
+
